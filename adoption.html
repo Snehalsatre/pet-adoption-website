@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Pet Adoption Form</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+
+<a class="navbar-brand" href="#">🐾 PetAdopt</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="pets.html">Pets</a></li>
+<li class="nav-item"><a class="nav-link" href="adoption.html">Adoption</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+<div class="container mt-5">
+
+<h2 class="text-center">Pet Adoption Form 🐾</h2>
+
+<p class="text-center">
+Total Forms Submitted: <span id="formCount">0</span>
+</p>
+
+<form id="adoptionForm">
+
+<div class="mb-3">
+<label class="form-label">Full Name</label>
+<input type="text" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Email</label>
+<input type="email" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Phone Number</label>
+<input type="tel" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Select Pet</label>
+
+<select class="form-control" required>
+
+<option value="">Choose a pet</option>
+<option>Dog 🐕</option>
+<option>Cat 🐈</option>
+<option>Rabbit 🐇</option>
+<option>Bird 🐦</option>
+<option>Hamster 🐹</option>
+
+</select>
+
+</div>
+
+<div class="mb-3">
+<label class="form-label">Address</label>
+<textarea class="form-control" rows="3" required></textarea>
+</div>
+
+<button type="submit" class="btn btn-adopt">Submit Adoption Request</button>
+
+</form>
+
+</div>
+
+
+<script>
+
+let count = localStorage.getItem("adoptionCount");
+
+if(count === null){
+count = 0;
+}
+
+document.getElementById("formCount").innerText = count;
+
+document.getElementById("adoptionForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+count++;
+
+localStorage.setItem("adoptionCount", count);
+
+document.getElementById("formCount").innerText = count;
+
+alert("Adoption form submitted successfully 🐾");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
